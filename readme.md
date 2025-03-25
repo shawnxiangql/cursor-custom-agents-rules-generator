@@ -2,11 +2,12 @@
 
 Cursor Version Applicability: 0.46+
 
-## Important Updates (March 22, 2025)
+## Important Updates TL;DR (March 25, 2025)
 
 - Subfolder organization replaces numbered file prefixing and is fully supported by auto generation
 - Agent mode recommended for rule generation
 - Four distinct rule types available - see [Rule Types](#rule-types) section
+- Workflow is no longer in XNotes - it has moved to .cursor/rules/workflows and /templates - this is much better and replaces the need for using the beta notepads feature, now using the manual rule macro feature instead!
 
 > 💡 **IDE Setting HIGHLY Suggested:** For best results with rule generation, update your Cursor settings by adding:
 >
