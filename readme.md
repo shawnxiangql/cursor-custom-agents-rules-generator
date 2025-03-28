@@ -4,7 +4,7 @@ Cursor Version Applicability: 0.46+
 
 ## Important Note V 0.47+
 
-- Auto Select Rules (glob pattern only) - one of the 4 types supported by cursor, is generally very flaky as of right now - so this template will properly generate the rules to apply to glob patterns, but does not reliably get picked up. I expect this will be fixed by cursor soon - but the rule generator is applying them properly.
+- I have updated the repo to properly add .cursor/rules/* to the .cursorindexingignore - without this, you will run into a lot of flakiness when trying to edit or tweak an existing rule or change its type without reindexing the whole project. This will make A BIG difference.
 
 ## Important Updates TL;DR (March 25, 2025)
 
