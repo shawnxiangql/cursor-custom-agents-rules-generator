@@ -1,3 +1,4 @@
 /xnotes
 .cursor/templates/*.md
 /node_modules
+.cursor/rules/*
