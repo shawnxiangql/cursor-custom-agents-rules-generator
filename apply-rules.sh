@@ -24,19 +24,36 @@ For workflow documentation, see [Workflow Rules](docs/workflow-rules.md).
 EOL
 fi
 
-# Create .cursor/rules directory if it doesn't exist
-mkdir -p "$TARGET_DIR/.cursor/rules"
+# Create .cursor directory if it doesn't exist
+mkdir -p "$TARGET_DIR/.cursor"
 
-# Create .cursor/templates directory if it doesn't exist
-mkdir -p "$TARGET_DIR/.cursor/templates"
+# Function to copy files only if they don't exist in target
+copy_if_not_exists() {
+    local src="$1"
+    local dest="$2"
+    
+    if [ ! -e "$dest" ]; then
+        echo "📦 Copying new file: $(basename "$dest")"
+        cp "$src" "$dest"
+    else
+        echo "⏭️  Skipping existing file: $(basename "$dest")"
+    fi
+}
 
-# Copy core rule files
-echo "📦 Copying core rule files..."
-cp -r .cursor/rules/* "$TARGET_DIR/.cursor/rules/"
-
-# Copy template files
-echo "📦 Copying template files..."
-cp -r .cursor/templates/* "$TARGET_DIR/.cursor/templates/"
+# Copy all files from .cursor directory structure
+echo "📦 Copying .cursor directory files..."
+find .cursor -type f | while read -r file; do
+    # Get the relative path from .cursor
+    rel_path="${file#.cursor/}"
+    target_file="$TARGET_DIR/.cursor/$rel_path"
+    target_dir="$(dirname "$target_file")"
+    
+    # Create target directory if it doesn't exist
+    mkdir -p "$target_dir"
+    
+    # Copy file if it doesn't exist
+    copy_if_not_exists "$file" "$target_file"
+done
 
 # Create docs directory if it doesn't exist
 mkdir -p "$TARGET_DIR/docs"

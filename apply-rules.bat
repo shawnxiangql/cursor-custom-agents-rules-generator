@@ -23,23 +23,44 @@ if not exist "%TARGET_DIR%\" (
     ) > "%TARGET_DIR%\README.md"
 )
 
-if not exist "%TARGET_DIR%\.cursor\rules\" (
-    mkdir "%TARGET_DIR%\.cursor\rules"
+REM Create .cursor directory if it doesn't exist
+if not exist "%TARGET_DIR%\.cursor\" (
+    mkdir "%TARGET_DIR%\.cursor"
 )
 
-if not exist "%TARGET_DIR%\.cursor\templates\" (
-    mkdir "%TARGET_DIR%\.cursor\templates"
+REM Function to copy file if it doesn't exist
+:copy_if_not_exists
+set "src=%~1"
+set "dest=%~2"
+if not exist "%dest%" (
+    echo 📦 Copying new file: %~nx2
+    copy "%src%" "%dest%" >nul
+) else (
+    echo ⏭️  Skipping existing file: %~nx2
+)
+exit /b
+
+REM Copy all files from .cursor directory structure
+echo 📦 Copying .cursor directory files...
+for /r ".cursor" %%F in (*) do (
+    set "rel_path=%%~pF"
+    set "rel_path=!rel_path:.cursor\=!"
+    
+    REM Create target directory if it doesn't exist
+    if not exist "%TARGET_DIR%\.cursor\!rel_path!" (
+        mkdir "%TARGET_DIR%\.cursor\!rel_path!"
+    )
+    
+    REM Copy file if it doesn't exist
+    call :copy_if_not_exists "%%F" "%TARGET_DIR%\.cursor\!rel_path!%%~nxF"
 )
 
-echo Copying core rule files...
-xcopy ".cursor\rules\*.*" "%TARGET_DIR%\.cursor\rules\" /E /I /Y >nul
-
-echo Copying template files...
-xcopy ".cursor\templates\*.*" "%TARGET_DIR%\.cursor\templates\" /E /I /Y >nul
-
+REM Create docs directory if it doesn't exist
 if not exist "%TARGET_DIR%\docs\" (
     mkdir "%TARGET_DIR%\docs"
 )
+
+REM Create workflow documentation
 (
     echo # Cursor Workflow Rules
     echo.
@@ -130,12 +151,12 @@ if exist "%TARGET_DIR%\.cursorindexingignore" (
     ) > "%TARGET_DIR%\.cursorindexingignore"
 )
 
-echo .
-echo Deployment Complete!
-echo Core rule generator: $TARGET_DIR/.cursor/rules/core-rules/rule-generating-agent.mdc
-echo Sample sub-folders and rules: $TARGET_DIR/.cursor/rules/{sub-folders}/
-echo Sample Agile Workflow Templates: $TARGET_DIR/.cursor/templates/
-echo Workflow Documentation: $TARGET_DIR/docs/workflow-rules.md
-echo Updated .gitignore, .cursorignore, and .cursorindexingignore
+echo.
+echo ✨ Deployment Complete!
+echo 📁 Core rule generator: %TARGET_DIR%\.cursor\rules\core-rules\rule-generating-agent.mdc
+echo 📁 Sample sub-folders and rules: %TARGET_DIR%\.cursor\rules\{sub-folders}\
+echo 📁 Sample Agile Workflow Templates: %TARGET_DIR%\.cursor\templates\
+echo 📄 Workflow Documentation: %TARGET_DIR%\docs\workflow-rules.md
+echo 🔒 Updated .gitignore, .cursorignore, and .cursorindexingignore
 
 endlocal
