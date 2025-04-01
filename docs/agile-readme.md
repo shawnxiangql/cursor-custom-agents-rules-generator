@@ -12,11 +12,6 @@ The Agile-Cursor workflow combines traditional Agile methodologies with AI-assis
    - Automatically applies standards to matching files
    - Provides consistent structure enforcement
 
-2. **Notepad-Based Implementation** (Flexible)
-   - Uses `xnotes/` templates
-   - Lighter weight and more adaptable
-   - Ideal for focused development sessions
-
 ## Work Item Hierarchy
 
 ```mermaid
