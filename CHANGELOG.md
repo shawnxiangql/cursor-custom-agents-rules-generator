@@ -1,5 +1,13 @@
 # Changelog
 
+## April 2025
+
+### Fixed Clone of All Cursor Indexing Ignores
+
+Modified `apply-rules.sh` to properly copy all entries from the source `.cursorindexingignore` file to target projects. Previously, the script was only checking for and adding a single entry (`.cursor/templates/`).
+
+**Note:** If you have cloned before and used the generator, be sure to manually update your `.cursorindexingignore` to include all entries listed in the template's ignore file.
+
 ## March 31, 2025
 
 Big change with this update is the creation of a samples folder with the star trek fictional characters agents, which is more of a fun illustrative (and fun way to work) example.
