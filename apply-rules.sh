@@ -108,11 +108,17 @@ fi
 
 # Create or update .cursorindexingignore
 if [ -f "$TARGET_DIR/.cursorindexingignore" ]; then
-    if ! grep -q "^\.cursor/templates/" "$TARGET_DIR/.cursorindexingignore"; then
-        echo -e "\n# Templates - accessible but not indexed\n.cursor/templates/" >> "$TARGET_DIR/.cursorindexingignore"
-    fi
+    # Backup the original file before modifying
+    cp "$TARGET_DIR/.cursorindexingignore" "$TARGET_DIR/.cursorindexingignore.bak"
+    
+    # Copy all entries from the source .cursorindexingignore to the target
+    cp ".cursorindexingignore" "$TARGET_DIR/.cursorindexingignore"
+    
+    echo "🔄 Updated .cursorindexingignore with all entries from source"
 else
-    echo -e "# Templates - accessible but not indexed\n.cursor/templates/" > "$TARGET_DIR/.cursorindexingignore"
+    # Create new file by copying the current one
+    cp ".cursorindexingignore" "$TARGET_DIR/.cursorindexingignore"
+    echo "📝 Created new .cursorindexingignore file"
 fi
 
 echo "✨ Deployment Complete!"
