@@ -9,7 +9,7 @@ With that in mind, going forward after this correction update - any major change
 
 The name of the repo has changed to BMad Cursor Master Workflow Agent and Rules - this is still the ever evolving same project regarding rules best practices, but its evolving and expanding in features and capability as cursor evolves, becoming more and more powerful to meet the needs of the Cursor and AI Development community, as this may eventually expand beyond cursor.
 
-Please view the [CHANGELOG](./CHANGELOG.MD) for important updates and usage announcements.
+Please view the [CHANGELOG](./CHANGELOG.md) for important updates and usage announcements.
 
 ## Important Updates TL;DR (March 25, 2025)
 
@@ -154,7 +154,7 @@ If you want to have rules that are not used by others in the repository - you ca
 
 ## Custom Agent Generation
 
-Custom Agents allow scoping and guidance to what an agent can and cannot do, more directly that using cursor rules files. With a custom agent, you can specify what tools the agent can and cannot use (both cursor native and mcp), and more importantly you can control what model it uses and give it a custom prompt to guide how it operates. This is like a direct injection of a clear always rule for this specific type of agent you have created. When combined with the Agile workflow, you can have a dedicated Project Manager Agent, an Architect Agent, Designer and UX Expert Agents, Front End, Back End, and Language Specific Expert Developers and keep them all focused on what they are good at, and providing them real guardrails.
+Custom Agents allow scoping and guidance to what an agent can and cannot do, more directly than using cursor rules files. With a custom agent, you can specify what tools the agent can and cannot use (both cursor native and mcp), and more importantly you can control what model it uses and give it a custom prompt to guide how it operates. This is like a direct injection of a clear always rule for this specific type of agent you have created. When combined with the Agile workflow, you can have a dedicated Project Manager Agent, an Architect Agent, Designer and UX Expert Agents, Front End, Back End, and Language Specific Expert Developers and keep them all focused on what they are good at, and providing them real guardrails.
 
 Cursor in an upcoming update will allow the creation and maintainability of these in a JSON file - in the meantime, these have to be created manually 1 by one in a gui that is a bit flaky and the text entry are is very small.
 
