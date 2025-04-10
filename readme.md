@@ -191,7 +191,6 @@ In the future, that modes.json file will be replaced by the official file format
 - Some rules become unnecessary as codebase grows as the AI will follow surrounding code styles and conventions
 - The minimal amount of rules, the better - so prune rules as the codebase changes or models improve
 - A rule you need today, may be a rule you do not need tomorrow, and then again you might need it another day - trial and error and evolution is the key to dealing with the nondeterministic nature of what we are working with here.
--
 
 ## Files Excluded from Indexing
 
