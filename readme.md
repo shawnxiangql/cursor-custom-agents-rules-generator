@@ -1,5 +1,9 @@
 # BMad's Best Practices Cursor Custom Agents and Rules Generator
 
+April 16, 2025
+
+You can now generate rules directly in a conversation using the `/Generate Cursor Rules` command. This makes it easy to define how the agent should behave without leaving the chat.
+
 BMad Version: 3.1 (March 30, 2025)
 Cursor Version: 0.48+
 
