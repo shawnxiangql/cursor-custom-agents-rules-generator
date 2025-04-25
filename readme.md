@@ -23,7 +23,7 @@ Please view the [CHANGELOG](./CHANGELOG.md) for important updates and usage anno
 
 ## Important Updates TL;DR (March 25, 2025)
 
-> 💡 **IDE Setting HIGHLY Suggested:** For best results with rule generation, update your Cursor settings by adding:
+> 💡 **IDE Setting HIGHLY Suggested:** For best results with rule generation, update your VS Code settings (open as JSON via top right button) by adding:
 >
 > ```json
 > "workbench.editorAssociations": {
