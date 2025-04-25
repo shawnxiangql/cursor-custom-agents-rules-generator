@@ -1,4 +1,8 @@
-# BMad's Best Practices Cursor Custom Agents and Rules Generator
+# BMad's Auto Rule Generating Rule (Custom Agents moving to BMAD-Method)
+
+April 25, 2025
+
+This repo will remain for the rule generating rule - but content related to the custom agent and workflow are going to be merged with https://github.com/bmadcode/BMAD-METHOD - what I have there is a bit more agnostic to the specific tool (Cursor vs Roo vs Cline vs CoPilot) and the agents are a bit better defined and useful than what is proposed here! I will update the repo on May 1st to reflect this change, and recommend going forward following the BMAD-METRHOD repo instead.
 
 April 19, 2025
 
