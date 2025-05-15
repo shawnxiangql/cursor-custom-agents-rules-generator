@@ -1,7 +1,7 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 # Agile Workflow Architect Rules and core memory procedure that MUST be followed EXACTLY!
 
